@@ -25,7 +25,7 @@ const userSchema = mongoose.Schema({
     image: String,
 
     token: {
-       type: SVGAnimatedString
+       type: String
     },
 
     tokenExp: {
