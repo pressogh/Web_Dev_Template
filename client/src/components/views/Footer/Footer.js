@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Config() {
+function Footer() {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function Config() {
     )
 }
 
-export default Config
+export default Footer

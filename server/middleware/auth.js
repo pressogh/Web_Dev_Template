@@ -6,6 +6,8 @@ let auth = (req, res, next) => {
     //client 쿠키에서 token 을 가져옴
     let token = req.cookies.x_auth;
     //token 복호화후 user 를 찾음
+    //user 가 있으면 인증 O
+    //user 가 없으면 인증 X
     User.findByToken(token, (err, user) => {
         if (err) throw err;
         if (!user) return res.json({isAuth: flase, error: true});
@@ -13,9 +15,6 @@ let auth = (req, res, next) => {
         req.user = user;
         next();
     })
-    //user 가 있으면 인증 O
-
-    //user 가 없으면 인증 X
 };
 
 module.exports = { auth };
