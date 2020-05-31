@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../_action/user_action';
+import { withRouter } from 'react-router-dom';
 
 //TypeError: Cannot read property 'prototype' of undefined 에러가 날 경우 require('express') 있는 줄 지우기
 
@@ -56,4 +57,4 @@ function LoginPage(props) {
     )
 }
 
-export default LoginPage;
+export default withRouter(LoginPage);

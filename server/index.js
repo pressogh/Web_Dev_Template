@@ -73,7 +73,7 @@ app.get('/api/users/auth', auth, (req, res) => {
     //auth = true
     res.status(200).json({
         _id: req.user_id,
-        isAdmin: req.user.role !== 0,
+        isAdmin: req.user.role === 0 ? false : true,
         isAuth: true,
         email: req.user.email,
         name: req.user.name,
@@ -85,6 +85,7 @@ app.get('/api/users/auth', auth, (req, res) => {
 app.get('/api/users/logout', auth, (req, res) => {
     //로그아웃 하려는 유저를 DB에서 검색
     User.findOneAndUpdate({ _id: req.user._id},
+        //token 지우기
         { token: "" }
         ,(err, user) => {
         if (err) return res.json({ success: false, err});
