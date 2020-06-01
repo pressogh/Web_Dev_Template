@@ -6,4 +6,4 @@ write
 in dev.js
 
 ## To Start Server
-### `npm run start`
+### `npm run dev`
